@@ -1,0 +1,68 @@
+<div>
+       	      <div class="container" >
+    		<div class="row">
+        		<div class="col-md-5" style ="height: 400px;">
+                                        <h2>Kærlighed til bøger</h2>                                        
+
+Historikeren Charlotte Appel bringer i - <b>Kunne læse udi Bøger Print</b> fra 1995 -
+følgende historie om tjenestepigen Mette Jensdatter fra Vonsild ved Kolding. 
+<br/>
+Pastor Johannes Rüde fortæller os, at Mette var født 1658 i Mammen by og sogn
+(ved Viborg), hvor hun var blevet "i Gudz fryct opdragen" og selv havde "øfvet sig,
+at hun kunde læse i prentede bøger". Hun havde i flere år arbejdet som
+tjenestepige, men efter at have født et uægte barn (der døde som spæd) var hun
+flyttet til Strårup, lige syd for Kolding, sandsynligvis for at være i nærheden af sin
+bror. Her arbejdede hun om sommeren, men sad om vinteren "for sig selv". Hun
+levede i anmod og kunne ikke betale skat. Fra Mettes bror Erik havde præsten hørt,
+hvordan hun gik til Kolding marked fastelavnsmandag for at købe sig en historie
+"som Peders sølff nøgel oc andre slige". På vejen hjem var hun så "kommen til sit
+dødzstæd" og blev først fundet næsten syv uger senere. Selvom hun egentlig hørte
+til et andet sogn, blev hun p.g.a. sin fattigdom begravet af Johannes Rüde fra
+Vonsild kirke.
+
+                        </div>	
+        		<div class="col-md-6" style ="overflow-y: auto; height: 400px;">
+<table class="table table-hover table-striped table-bordered">
+    <thead>
+        <tr>
+            <td><b>Forfatter</b></td>
+            <td><b>Titel</b></td>
+            <td><b>Udgivet</b></td>
+            <td><b>ISBN</b></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="bog in boeger">
+            <td>{{ bog.writer }}</td>
+            <td>{{ bog.title }}</td>
+            <td>{{ bog.release}}</td>
+            <td>{{ bog.isbn}}</td>
+        </tr>
+    </tbody>
+</table>   
+                        </div>	
+                </div>
+            </div>
+
+    
+    <div class="row" style="margin-top: 50px;">
+
+        <div class="col-md-2">
+            <div class="btn-group-vertical" >
+                <a data-ui-sref=".crud" class="btn btn-default">Opret ny titel</a>
+                <a data-ui-sref=".links" class="btn btn-default">Links</a>
+                <a data-ui-sref=".definition" class="btn btn-default">Definition</a>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <div data-ui-view>
+<i><b>Project Gutenberg</b> (eller Projekt Gutenberg) er et internationalt, idealistisk initiativ for at tilbyde gratis elektroniske udgaver af ældre litteratur, som er under public domain.
+Project Gutenberg blev grundlagt af Michael Hart i 1971. Blandt dets første digitaliseringer var USA's uafhængighedserklæring udgivet i december 1971.[1] I marts 2009 var der mere end 28.000 bøger på sitet.
+I de seneste år er de fleste elektroniske tekster produceret af det auxillære Project Gutenberg's Distributed Proofreaders (PGDP), et community website, hvor indscannede faksimile-billeder af bogsider præsenteres sammen med OCR-tekst, som frivillige kan korrekturlæse.<br/></i>
+<a href="http://www.gutenberg.org/">Project Gutenberg</a>
+            </div>  
+        </div>
+    </div>
+
+</div>

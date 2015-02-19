@@ -1,0 +1,84 @@
+<div ng-init="forfaedre='syv'">   
+        <h2>Forord</h2>
+    Tanken med denne side er at samle og nedskrive den viden, jeg er i besiddelse af, om de af mine forfædre, som bærer navnet Villefranc(h)e. 
+    Jeg vil fokusere på de første generationer blandt disse forfædre, og forsøge at opridse en skitse af deres livsforløb. 
+    På siden vil jeg videre forsøge at nedskrive de forhold jeg ikke ved noget om, eller endnu ikke har undersøgt. 
+    Idéen med dette er dels at hjælpe mig selv med at holde styr på, hvad der endnu ikke er undersøgt og dels at inspirere den øvrige familie til at bidrage til ”forskningen”.
+    Det kan være vanskeligt at holde styr på, hvem der er børn af hvem i en slægtshistorie som den følgende. Derfor vil jeg operere med en nummerering af hver generation. 
+
+    <h3>Fra Mørkøv tilbage til George Villefranche</h3>
+    Går vi baglæns gennem tiden er navnet Villefrance blevet nedarvet til mig, <b>Henrik Villefrance Andreassen</b> på følgende vis</br>
+    </br>    
+    
+    <button ng-click="forfaedre='syv'">7.generation</button>
+    <button ng-click="forfaedre='seks'">6.generation</button>
+    <button ng-click="forfaedre='fem'">5.generation</button>
+    <button ng-click="forfaedre='fire'">4.generation</button>
+    <button ng-click="forfaedre='tre'">3.generation</button>
+    <button ng-click="forfaedre='to'">2.generation</button>
+    <button ng-click="forfaedre='en'">1.generation</button>
+</br></br>    
+
+    <div ng-switch="forfaedre" class="my-switch-container">
+        <div ng-switch-when="en" class="my-switch-animation">
+    <u>1.generation</u>
+Morfars tip-tip-oldefar (MFMFFFF):
+<b>George Villefranche</b></br>
+Født den 1741 i Paris</br>
+Korporal i Rendsborg samt i Ribe</br>
+Viet den 11.09.1770 i Rendsborg med <b>Maria Dahmin</b> (?-?)</br>
+Viet for 2.gang i 1781(?) med <b>Kierstine Smidt</b>.</br>
+Død den 22.08.1799 i Rendsborg.
+        </div>
+        <div ng-switch-when="to" class="my-switch-animation">
+    <u>2.generation</u>
+Morfars tip-oldefar (MFMFFF):
+<b>Nicolaus Detlev Villefranche</b></br>
+Født den 30.01.1776 i Rendsborg</br>
+Korporal i Rendsborg</br>
+Ikke gift med <b>Ane Marie Nielsdatter</b></br>
+Død den 27.04.1833 i Rendsborg.
+        </div>
+        <div ng-switch-when="tre" class="my-switch-animation">
+    <u>3.generation</u>
+Morfars oldefar (MFMFF):
+<b>Niels Villefrance</b></br>
+Født den .04.03.1814 (tvillingebroderen <b>Jens</b> dør 15 dage gammel)</br>
+Schæffer ved Lerchenfeld gods ved Kalundborg frem til august 1841, derefter ved Moesgaard ved Århus</br>
+Viet den 12.10.1852 i Mårslet sogn ved Århus med <b>Kirsten Rasmusdatter</b> (ca. 1825-?)</br>
+Død – ? (efter 1860).
+        </div>
+        <div ng-switch-when="fire" class="my-switch-animation">
+    <u>4.generation</u>
+Morfars morfar (MFMF):
+<b>Frederik Nielsen Villefrance</b></br>
+Født den 23.12.1858 på Skåde mark, Holme sogn ved Århus</br>
+F.N.V.s arbejdsmæssige titel var bestyrer.</br>
+Gift med <b>Louise Henrichsen Peick</b> (1860-?).</br>
+Død ?.
+        </div>
+        <div ng-switch-when="fem" class="my-switch-animation">
+    <u>5.generation</u>
+Morfars mor (MFM):
+<b>Marie Kirstine Villefrance</b></br>
+Født den 28.04.1890 i Falling sogn, Hads herred, Aarhus amt</br>
+Viet den 26.01.1915 i Fruering kirke med postkører <b>Jens Peder Pedersen</b> (23.07.1887-30.08.1968)</br>
+Død i Skamstrup den 19.06.1941.    
+        </div>
+        <div ng-switch-when="seks" class="my-switch-animation">
+    <u>6.generation</u>
+Min Morfar (MF):
+<b>Frederik Villefrance Pedersen</b></br>
+Født i Mørkøv den 26.01.1920</br>
+01.03.1938: ansættelse som landpostbud på Skamstrup-Sørninge-ruten</br>
+Viet den 16.03.1946 i Viskinge kirke med <b>Conny Marie Haarmark Sørensen</b> (22.10.1921-16.06.1986) </br>
+Død den 27.07.1988.           
+        </div>
+        <div ng-switch-when="syv" class="my-switch-animation">
+    <u>7.generation</u>
+Min mor (M):
+<b>Jette Marie Villefrance Andreassen</b>, født <b>Pedersen</b></br>
+Født i Mørkøv den 21.11.1947</br>
+Viet den 22.07.1972 i Mørkøv kirke med montør <b>Flemming Preben Andreassen</b> (født 10.11.1943). 
+        </div>
+</div>
