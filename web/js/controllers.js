@@ -109,8 +109,8 @@ routerApp.controller('brev2Controller', function($scope) {
 routerApp.controller('skifteprotokolController', function($scope) {
 });
 
-routerApp.controller('justitsprortokolController', function($scope, $sce) {
-       $scope.omjustitsprortokoller = $sce.trustAsResourceUrl("templates/omjustitsprortokoller.html");   
+routerApp.controller('justitsprotokolController', function($scope, $sce) {
+       $scope.omjustitsprotokoller = $sce.trustAsResourceUrl("templates/omjustitsprotokoller.html");   
 });
 
 omjustitsprortokoller
