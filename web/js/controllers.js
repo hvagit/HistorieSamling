@@ -112,5 +112,3 @@ routerApp.controller('skifteprotokolController', function($scope) {
 routerApp.controller('justitsprotokolController', function($scope, $sce) {
        $scope.omjustitsprotokoller = $sce.trustAsResourceUrl("templates/omjustitsprotokoller.html");   
 });
-
-omjustitsprortokoller
