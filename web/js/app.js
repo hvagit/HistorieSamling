@@ -126,6 +126,46 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state('villefranche.kilder.stamboeger', {
+            url: '/stamboeger',
+            views: {
+                '': { templateUrl: 'templates/stamboeger.html',
+                      controller: 'stambogController'
+                }
+            }
+        })
+        .state('villefranche.kilder.stamboeger.george1', {
+            url: '/george1',
+            views: {
+                '': { templateUrl: 'templates/george1.html',
+                      controller: 'stamboggeorge1Controller'
+                }
+            }
+        })
+        .state('villefranche.kilder.stamboeger.nicolai1', {
+            url: '/nicolai1',
+            views: {
+                '': { templateUrl: 'templates/nicolai1.html',
+                      controller: 'stambognicolai1Controller'
+                }
+            }
+        })
+        .state('villefranche.kilder.stamboeger.nicolai2', {
+            url: '/nicolai2',
+            views: {
+                '': { templateUrl: 'templates/nicolai2.html',
+                      controller: 'stambognicolai2Controller'
+                }
+            }
+        })
+        .state('villefranche.kilder.stamboeger.nicolai3', {
+            url: '/nicolai3',
+            views: {
+                '': { templateUrl: 'templates/nicolai3.html',
+                      controller: 'stambognicolai3Controller'
+                }
+            }
+        })
         .state('villefranche.kilder.justitsprotokoller', {
             url: '/justitsprotokoller',
             views: {
@@ -133,7 +173,94 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
                       controller: 'justitsprotokolController'
                 }
             }
+        })
+        .state('villefranche.kilder.justitsprotokoller.jp1781a', {
+            url: '/jp1781a',
+            views: {
+                '': { templateUrl: 'templates/jp1781a.html',
+                      controller: 'jp1781aController'
+                }
+            }
+        })
+        .state('villefranche.kilder.justitsprotokoller.jp1784a', {
+            url: '/jp1784a',
+            views: {
+                '': { templateUrl: 'templates/jp1784a.html',
+                      controller: 'jp1784aController'
+                }
+            }
+        })
+        .state('villefranche.kilder.justitsprotokoller.jp1784b', {
+            url: '/jp1784b',
+            views: {
+                '': { templateUrl: 'templates/jp1784b.html',
+                      controller: 'jp1784bController'
+                }
+            }
+        })
+        .state('villefranche.kilder.justitsprotokoller.jp1789a', {
+            url: '/jp1789a',
+            views: {
+                '': { templateUrl: 'templates/jp1789a.html',
+                      controller: 'jp1789aController'
+                }
+            }
+        })
+        .state('villefranche.kilder.justitsprotokoller.jp1791a', {
+            url: '/jp1791a',
+            views: {
+                '': { templateUrl: 'templates/jp1791a.html',
+                      controller: 'jp1791aController'
+                }
+            }
+        })
+        .state('villefranche.kilder.justitsprotokoller.jp1791b', {
+            url: '/jp1791b',
+            views: {
+                '': { templateUrl: 'templates/jp1791b.html',
+                      controller: 'jp1791bController'
+                }
+            }
+        })
+        .state('villefranche.kilder.justitsprotokoller.jp1808a', {
+            url: '/jp1808a',
+            views: {
+                '': { templateUrl: 'templates/jp1808a.html',
+                      controller: 'jp1808aController'
+                }
+            }
+        })
+        .state('villefranche.kilder.forskning', {
+            url: '/forskning',
+            views: {
+                '': { templateUrl: 'templates/forskning.html',
+                      controller: 'forskningController'
+                }
+            }
+        })
+        .state('villefranche.kilder.forskning.petersen', {
+            url: '/petersen',
+            views: {
+                '': { templateUrl: 'templates/petersen.html',
+                      controller: 'petersenController'
+                }
+            }
+        })
+        .state('villefranche.kilder.forskning.malhache', {
+            url: '/malhache',
+            views: {
+                '': { templateUrl: 'templates/malhache.html',
+                      controller: 'malhacheController'
+                }
+            }
+        })
+        .state('villefranche.kilder.forskning.grutzner', {
+            url: '/grutzner',
+            views: {
+                '': { templateUrl: 'templates/grutzner.html',
+                      controller: 'grutznerController'
+                }
+            }
         });
-
 });
 

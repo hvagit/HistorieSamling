@@ -112,3 +112,57 @@ routerApp.controller('skifteprotokolController', function($scope) {
 routerApp.controller('justitsprotokolController', function($scope, $sce) {
        $scope.omjustitsprotokoller = $sce.trustAsResourceUrl("templates/omjustitsprotokoller.html");   
 });
+
+routerApp.controller('jp1781aController', function($scope) {
+});
+
+routerApp.controller('jp1784aController', function($scope) {
+});
+
+routerApp.controller('jp1784bController', function($scope) {
+});
+
+routerApp.controller('jp1789aController', function($scope) {
+});
+
+routerApp.controller('jp1791aController', function($scope) {
+});
+
+routerApp.controller('jp1791bController', function($scope) {
+});
+
+routerApp.controller('jp1808aController', function($scope) {
+});
+
+routerApp.controller('stambogController', function($scope, $sce) {
+       $scope.omstamboeger = $sce.trustAsResourceUrl("templates/omstamboeger.html");   
+});
+
+routerApp.controller('stamboggeorge1Controller', function($scope) {
+});
+
+routerApp.controller('stambognicolai1Controller', function($scope) {
+});
+
+routerApp.controller('stambognicolai2Controller', function($scope) {
+});
+
+routerApp.controller('stambognicolai3Controller', function($scope) {
+});
+
+routerApp.controller('forskningController', function($scope, $sce) {
+       $scope.omforskning = $sce.trustAsResourceUrl("templates/omforskning.html");   
+});
+
+routerApp.controller('petersenController', function($scope) {
+});
+
+routerApp.controller('malhacheController', function($scope) {
+});
+
+routerApp.controller('grutznerController', function($scope) {
+});
+
+routerApp.controller('stambognicolai3Controller', function($scope) {
+});
+
