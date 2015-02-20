@@ -86,6 +86,14 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             }
             
         })
+        .state('villefranche.litteratur', {
+            url: '/litteratur',
+            views: {
+                '': { templateUrl: 'templates/litteratur.html',
+                      controller: 'litteraturController'
+                }
+            }
+        })
         .state('villefranche.kilder', {
             url: '/kilder',
             views: {
@@ -259,6 +267,54 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             views: {
                 '': { templateUrl: 'templates/grutzner.html',
                       controller: 'grutznerController'
+                }
+            }
+        })
+        .state('villefranche.kilder.kirkeboeger', {
+            url: '/kirkeboeger',
+            views: {
+                '': { templateUrl: 'templates/kirkeboeger.html',
+                      controller: 'kirkebogController'
+                }
+            }
+        })
+        .state('villefranche.kilder.kirkeboeger.holme', {
+            url: '/holme',
+            views: {
+                '': { templateUrl: 'templates/holme.html',
+                      controller: 'holmeController'
+                }
+            }
+        })
+        .state('villefranche.kilder.kirkeboeger.holmstrup', {
+            url: '/holmstrup',
+            views: {
+                '': { templateUrl: 'templates/holmstrup.html',
+                      controller: 'holmstrupController'
+                }
+            }
+        })
+        .state('villefranche.kilder.kirkeboeger.kalundborg', {
+            url: '/kalundborg',
+            views: {
+                '': { templateUrl: 'templates/kalundborg.html',
+                      controller: 'kalundborgController'
+                }
+            }
+        })
+        .state('villefranche.kilder.kirkeboeger.maarslet', {
+            url: '/maarslet',
+            views: {
+                '': { templateUrl: 'templates/maarslet.html',
+                      controller: 'maarsletController'
+                }
+            }
+        })
+        .state('villefranche.kilder.kirkeboeger.raklev', {
+            url: '/raklev',
+            views: {
+                '': { templateUrl: 'templates/raklev.html',
+                      controller: 'raklevController'
                 }
             }
         });

@@ -134,6 +134,10 @@ text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
     width: 900px;
 }
 
+.kirkebog-area {
+    width: 900px;
+}
+
 .text-area-shadow{
     box-shadow: 0 0 10px 10px black;   
 }

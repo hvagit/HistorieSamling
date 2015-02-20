@@ -166,3 +166,21 @@ routerApp.controller('grutznerController', function($scope) {
 routerApp.controller('stambognicolai3Controller', function($scope) {
 });
 
+routerApp.controller('kirkebogController', function($scope, $sce) {
+       $scope.omforskning = $sce.trustAsResourceUrl("templates/omkirkeboeger.html");   
+});
+
+routerApp.controller('holmeController', function($scope) {
+});
+
+routerApp.controller('holmstrupController', function($scope) {
+});
+
+routerApp.controller('maarsletController', function($scope) {
+});
+
+routerApp.controller('kalundborgController', function($scope) {
+});
+
+routerApp.controller('raklevController', function($scope) {
+});
