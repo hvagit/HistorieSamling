@@ -184,3 +184,16 @@ routerApp.controller('kalundborgController', function($scope) {
 
 routerApp.controller('raklevController', function($scope) {
 });
+
+routerApp.controller('folketaellingController', function($scope, $sce) {
+       $scope.omfolketaellinger = $sce.trustAsResourceUrl("templates/omfolketaellinger.html");   
+});
+
+routerApp.controller('ftgeorgeController', function($scope) {
+});
+
+routerApp.controller('ftnielsController', function($scope) {
+});
+
+routerApp.controller('ftnicolaiController', function($scope) {
+});

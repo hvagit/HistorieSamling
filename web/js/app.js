@@ -317,6 +317,38 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
                       controller: 'raklevController'
                 }
             }
+        })
+        .state('villefranche.kilder.folketaellinger', {
+            url: '/folketaellinger',
+            views: {
+                '': { templateUrl: 'templates/folketaellinger.html',
+                      controller: 'folketaellingController'
+                }
+            }
+        })
+        .state('villefranche.kilder.folketaellinger.ftgeorge', {
+            url: '/ftgeorge',
+            views: {
+                '': { templateUrl: 'templates/ftgeorge.html',
+                      controller: 'ftgeorgeController'
+                }
+            }
+        })
+        .state('villefranche.kilder.folketaellinger.ftnicolai', {
+            url: '/ftnicolai',
+            views: {
+                '': { templateUrl: 'templates/ftnicolai.html',
+                      controller: 'ftnicolaiController'
+                }
+            }
+        })
+        .state('villefranche.kilder.folketaellinger.ftniels', {
+            url: '/ftniels',
+            views: {
+                '': { templateUrl: 'templates/ftniels.html',
+                      controller: 'ftnielsController'
+                }
+            }
         });
 });
 
