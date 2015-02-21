@@ -77,6 +77,8 @@ routerApp.controller('generation1Controller', function($scope) {
     $scope.spidsrodPath = "img/spidsrod.png";
     $scope.vinstuePath = "img/vinstue.png";
     $scope.uniformPath = "img/uniform.png";
+    $scope.gronnegade37Path = "img/Gronnegade37.JPG"; 
+    $scope.haarpiskPath = "img/haarpisk.jpg";
 });
 
 routerApp.controller('generation2Controller', function($scope) {
