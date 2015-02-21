@@ -7,11 +7,11 @@
                             <div class="well" style="width: 400px; height: 600px; overflow: hidden;">
                                 <form class="form-search"> 
                                         <div class="input-append">
-                                                <input type="text" ng-model="search.film" class="search-query" style="width: 150px">
+                                                <input type="text" ng-model="search.titel" class="search-query" style="width: 150px">
                                         </div>
                                         <ul class="nav nav-pills nav-stacked">
-                                          <li class="animate" ng-repeat="x in films | unikFilter: 'film' | orderBy:['film']:[false] | filter: search " >
-                                        <a href ng-click="visTrailer(x)">{{x.film}} ({{x.aar}})</a>
+                                          <li class="animate" ng-repeat="x in film | unikFilter: 'titel' | orderBy:['titel']:[false] | filter: search " >
+                                        <a href ng-click="visTrailer(x)">{{x.titel}} ({{x.premiere}})</a>
                                                 </li> 
                                         </ul>
                                 </form>
@@ -22,11 +22,13 @@
     					<div my-youtube youtubecode="youtubecode"></div>
                     
                     
-                    <div style="margin-top: 100px">   
+                    <div style="margin-top: 50px">   
                         <div class="col-md-6">   
                             <div class="input-group input-group-sm">
-                                <input type="text" name="film" class="form-control" id="forfatter" placeholder="Titel" ng-model="filmModel" aria-describedby="sizing-addon3">
-                                <input type="number" name="aar" class="form-control" id="titel" placeholder="Udgivet" ng-model="aarModel" aria-describedby="sizing-addon3">
+                                <input type="text" name="filmtitel" class="form-control" id="forfatter" placeholder="Filmtitel" ng-model="filmtitelModel" aria-describedby="sizing-addon3">
+                                <input type="number" name="premiere" class="form-control" id="titel" placeholder="Premiere" ng-model="premiereModel" aria-describedby="sizing-addon3">
+                                <input type="text" name="instruktør" class="form-control" id="forfatter" placeholder="Instruktør" ng-model="instruktørModel" aria-describedby="sizing-addon3">
+                                <input type="text" name="trailer" class="form-control" id="forfatter" placeholder="Trailer" ng-model="trailerModel" aria-describedby="sizing-addon3">
                             </div>
                         </div>
                         <div class="col-md-4">   

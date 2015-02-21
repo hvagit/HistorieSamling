@@ -4,7 +4,7 @@ var routerControllers = angular.module('routerControllers', []);
 
 routerApp.controller('filmController', function($scope, $http, dataServiceLocal) {
     
-   	$scope.films = [];
+   	$scope.film = [];
 
 	$scope.hentAlleFilm = function() {
 		dataServiceLocal.hentAlleFilm($scope, $http);
@@ -71,8 +71,7 @@ routerApp.controller("villefrancheController", function($scope, $sce) {
 routerApp.controller('generation1Controller', function($scope) {
     $scope.ejderstenenPath = "img/ejderstenen.JPG";
     $scope.sjoverPath = "img/sjover.png";
-    $scope.kristkirkePath = "img/kristkirke.jpg";
-    $scope.broedPath = "img/broed.png";
+    $scope.kristkirkePath = "img/kristkirke.jpg";    $scope.broedPath = "img/broed.png";
     $scope.kridtpibePath = "img/kridtpibe.png";
     $scope.spidsrodPath = "img/spidsrod.png";
     $scope.vinstuePath = "img/vinstue.png";

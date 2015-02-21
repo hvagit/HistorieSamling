@@ -1,80 +1,93 @@
        [
         {
-            "writer": "Claus Bjørn",
-            "title": "1848",
-            "release": "1992",
+                "id": "1",
+            "forfatter": "Claus Bjørn",
+            "titel": "1848",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         },
         {
-            "writer": "Claus Bjørn",
-            "title": "1848",
-            "release": "1992",
+    "id": "2",
+            "forfatter": "Claus Bjørn",
+            "titel": "1848",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         },
         {
-            "writer": "Claus Bjørn",
-            "title": "1848",
-            "release": "1992",
+    "id": "3",
+            "forfatter": "Claus Bjørn",
+            "titel": "1848",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         },
         {
-            "writer": "Claus Bjørn",
-            "title": "1848",
-            "release": "1992",
+    "id": "4",
+            "forfatter": "Claus Bjørn",
+            "titel": "1848",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         },
         {
-            "writer": "Claus Bjørn",
-            "title": "1848",
-            "release": "1992",
+    "id": "5",
+            "forfatter": "Claus Bjørn",
+            "titel": "1848",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         },
         {
-            "writer": "Claus Bjørn",
-            "title": "1848",
-            "release": "1992",
+    "id": "6",
+            "forfatter": "Claus Bjørn",
+            "titel": "1848",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         },
         {
-            "writer": "Claus Bjørn",
-            "title": "1848",
-            "release": "1992",
+    "id": "7",
+            "forfatter": "Claus Bjørn",
+            "titel": "1848",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         },
         {
-            "writer": "Claus Bjørn",
-            "title": "1848",
-            "release": "1992",
+    "id": "8",
+            "forfatter": "Claus Bjørn",
+            "titel": "1848",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         },
         {
-            "writer": "Claus Bjørn Jensen Olsen",
-            "title": "En laaaaaaaaaan titel",
-            "release": "1992",
+    "id": "9",
+            "forfatter": "Claus Bjørn Jensen Olsen",
+            "titel": "En laaaaaaaaaan titel",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         },
         {
-            "writer": "Claus Bjørn",
-            "title": "1848",
-            "release": "1992",
+    "id": "10",
+            "forfatter": "Claus Bjørn",
+            "titel": "1848",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         },
         {
-            "writer": "Claus Bjørn",
-            "title": "1848",
-            "release": "1992",
+    "id": "11",
+            "forfatter": "Claus Bjørn",
+            "titel": "1848",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         },
         {
-            "writer": "Claus Bjørn",
-            "title": "1848",
-            "release": "1992",
+    "id": "12",
+            "forfatter": "Claus Bjørn",
+            "titel": "1848",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         },
         {
-            "writer": "Claus Bjørn",
-            "title": "1848",
-            "release": "1992",
+    "id": "13",
+            "forfatter": "Claus Bjørn",
+            "titel": "1848",
+            "udgivet": "1992",
             "isbn": "39048230840"           
         }
     ]

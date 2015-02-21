@@ -2,12 +2,12 @@ var routerServices = angular.module('routerServices', []);
 
 routerServices.service('dataServiceLocal', function DataServiceLocal() {
 	this.hentAlleFilm = function($scope, $http) {
-		  var promise = $http.get('data/films.json'); 
+		  var promise = $http.get('data/film.json'); 
 		  promise.success(function(data, status, headers, config) {
-			  	$scope.films.splice(0, $scope.films.length);
+			  	$scope.film.splice(0, $scope.film.length);
  				for(var i=0; i<data.length; i++)
 				{
-					$scope.films.push(data[i]);
+					$scope.film.push(data[i]);
 				}
 	  	}).error(function(data, status, headers, config) {
 	    		alert("Fejl "+status);
