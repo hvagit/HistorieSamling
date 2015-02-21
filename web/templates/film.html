@@ -11,7 +11,7 @@
                                         </div>
                                         <ul class="nav nav-pills nav-stacked">
                                           <li class="animate" ng-repeat="x in film | unikFilter: 'titel' | orderBy:['titel']:[false] | filter: search " >
-                                        <a href ng-click="visTrailer(x)">{{x.titel}} ({{x.premiere}})</a>
+                                        <a href ng-click="visTrailer(x)">{{x.titel}} ({{x.premiereaar}})</a>
                                                 </li> 
                                         </ul>
                                 </form>
