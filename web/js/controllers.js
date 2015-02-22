@@ -2,12 +2,12 @@
 
 var routerControllers = angular.module('routerControllers', []);
 
-routerApp.controller('filmController', function($scope, $http, dataServiceLocal) {
+routerApp.controller('filmController', function($scope, $http, dataService) {
     
    	$scope.film = [];
 
 	$scope.hentAlleFilm = function() {
-		dataServiceLocal.hentAlleFilm($scope, $http);
+		dataService.hentAlleFilm($scope, $http);
 	};
         
 	$scope.hentAlleFilm();
@@ -19,14 +19,14 @@ routerApp.controller('filmController', function($scope, $http, dataServiceLocal)
         };
 });
 
-routerApp.controller('bogController', function($scope, $http, dataServiceLocal) {
+routerApp.controller('bogController', function($scope, $http, dataService) {
 	
     $scope.visDefault = false;
 
     $scope.boeger = [];
             
     $scope.hentAlleBoeger = function(){
-	dataServiceLocal.hentAlleBoeger($scope, $http);
+	dataService.hentAlleBoeger($scope, $http);
     };
     
    $scope.hentAlleBoeger();
