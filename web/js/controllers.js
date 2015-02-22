@@ -24,7 +24,7 @@ routerApp.controller('bogController', function($scope, $http, dataService) {
     $scope.visDefault = false;
 
     $scope.boeger = [];
-            
+                       
     $scope.hentAlleBoeger = function(){
 	dataService.hentAlleBoeger($scope, $http);
     };
@@ -55,7 +55,10 @@ routerApp.controller('omhistorieController', function($scope, $state) {
 
 });
 
-routerApp.controller('bogCrudController', function($scope) {
+routerApp.controller('bogCrudController', function($scope, $http, dataService) {
+        $scope.opretBog = function(){
+        	dataService.opretBog($scope, $http);
+        };
 });
 
 routerApp.controller('bogLinksController', function($scope) {

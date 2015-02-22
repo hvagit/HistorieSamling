@@ -93,6 +93,26 @@ routerServices.service('dataService', function DataService() {
 	  	});
 	};			
 
+	this.opretBog = function($scope, $http) {
+		
+		var bogtitel = encodeURIComponent($scope.titelModel);
+		var forfatter = encodeURIComponent($scope.forfatterModel);
+		
+        var promise = $http.post(boegerServiceUrl, { 
+            "udgivelsesAar": $scope.udgivelsesaarModel,
+            "dk5Vaerdi": $scope.dk5VaerdiModel,
+            "forfatter": forfatter,
+            "titel": bogtitel,
+            "isbn": $scope.isbnModel
+          });
+        
+        promise.success(function(data, status, headers, config) {
+    		$scope.pwCudStatus = 'Bogen er oprettet';
+        });
+        promise.error(function(data, status, headers, config) {
+        	$scope.pwCudStatus = "AJAX fejl ifm. opretBog..."+status;
+        });
+	};
 
 });
 
