@@ -48,7 +48,7 @@ routerServices.service('dataService', function DataService() {
     			      });
 				}
 	  	}).error(function(data, status, headers, config) {
-	    		alert("Ajax fejl ifm. hentAlleFilm..."+status)
+	    		alert("Ajax fejl ifm. hentAlleFilm..."+status);
 	  	});
 	};
 	
