@@ -2,12 +2,24 @@
 
 var routerControllers = angular.module('routerControllers', []);
 
-routerApp.controller('filmController', function($scope, $http, dataService) {
+routerApp.controller('filmController', function($scope, dataServiceRest) {
     
    	$scope.film = [];
 
-	$scope.hentAlleFilm = function() {
-		dataService.hentAlleFilm($scope, $http);
+        $scope.sletFilm = function() {
+		dataServiceRest.sletFilm($scope);
+	};
+
+        $scope.opretFilm = function() {
+		dataServiceRest.opretFilm($scope);
+	};
+
+	$scope.opdaterFilm = function() {
+		dataServiceRest.opdaterFilm($scope);
+	};
+
+        $scope.hentAlleFilm = function() {
+		dataServiceRest.hentAlleFilm($scope);
 	};
         
 	$scope.hentAlleFilm();
