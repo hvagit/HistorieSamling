@@ -44,7 +44,7 @@ routerDirectives.directive('slider', function ($timeout) {
 		});
     },
 	templateUrl:'templates/images.html'
-  }
+  };
 });
 
 routerDirectives.directive('myYoutube', function($sce) {

@@ -121,22 +121,22 @@ routerServices.service('dataServiceRest', function DataServiceRest($resource) {
     var Film = $resource('http://9-dot-historiesamlingservice.appspot.com/film:id');
 
     this.opretFilm = function($scope) {
-        var film1 = new Film();
-        film1.instruktoer = encodeURIComponent($scope.instruktoerModel);
-        film1.titel = encodeURIComponent($scope.filmTitelModel);
-        film1.premiereAar = $scope.premiereAarModel;
-        film1.trailer = $scope.trailerModel;
-        film1.$save();   
+            var film1 = new Film();
+            film1.instruktoer = encodeURIComponent($scope.instruktoerModel);
+            film1.titel = encodeURIComponent($scope.filmTitelModel);
+            film1.premiereAar = $scope.premiereAarModel;
+            film1.trailer = $scope.trailerModel;
+            film1.$save();   
     };
 
     // Ikke implementeret færdig.
     this.opdaterFilm = function($scope) {
-        var film2 = Film.get({id: 4809889046069248});
+        var film2 = Film.get({id: 5124589889781760});
         film2.instruktoer = encodeURIComponent($scope.instruktoerModel);
         film2.titel = encodeURIComponent($scope.filmTitelModel);
         film2.premiereAar = $scope.premiereAarModel;
         film2.trailer = $scope.trailerModel;
-        film2.$update({id: 4809889046069248});
+        film2.$update();
     };
 
     // Bemærk, at der ikke er nogen opsætning af JSON-variable i metoden.
@@ -176,7 +176,7 @@ routerServices.service('dataServiceRest', function DataServiceRest($resource) {
 
     // Ikke implementeret færdig
     this.sletFilm = function($scope) {
-        Film.$delete({id: 4809889046069248});
+        Film.$delete({id: 5186378094608384});
     };
 
 });

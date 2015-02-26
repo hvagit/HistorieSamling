@@ -11,8 +11,8 @@ routerApp.controller('filmController', function($scope, dataServiceRest) {
 	};
 
         $scope.opretFilm = function() {
-		dataServiceRest.opretFilm($scope);
-	};
+                dataServiceRest.opretFilm($scope);
+        };
 
 	$scope.opdaterFilm = function() {
 		dataServiceRest.opdaterFilm($scope);
@@ -44,24 +44,85 @@ routerApp.controller('bogController', function($scope, $http, dataService) {
    $scope.hentAlleBoeger();
 });
 
-routerApp.controller('omhistorieController', function($scope, $state) {
+routerApp.controller('omhistorieController', function($scope, $state, $sce) {
 
     $scope.images = [ {
 		src : 'img1.JPG',
-		title : 'Pic 1'
-	}, {
+		text : $sce.trustAsHtml('Torbenfeldt slot')
+	}, 
+        {
 		src : 'img2.jpg',
-		title : 'Pic 2'
-	}, {
+		text : $sce.trustAsHtml('Sp&oslash;ttrup borg')
+	}, 
+        {
 		src : 'img3.JPG',
-		title : 'Pic 3'
-	}, {
+		text : $sce.trustAsHtml('Asserbo slotsruin')
+	}, 
+        {
 		src : 'img4.JPG',
-		title : 'Pic 4'
-	}, {
+		text : $sce.trustAsHtml('Tallinn bymur')
+	}, 
+        {
 		src : 'img5.JPG',
-		title : 'Pic 5'
-	} ];
+		text : $sce.trustAsHtml('Gjorslev slot')
+	},
+        {
+		src : 'img6.jpg',
+		text : $sce.trustAsHtml('Hammershus')
+	}, 
+        {
+		src : 'img7.jpg',
+		text : $sce.trustAsHtml('&Oslash;sterlars rundkirke')
+	},
+        {
+		src : 'img8.jpg',
+		text : $sce.trustAsHtml('Borren')
+	},
+        {
+		src : 'img9.jpg',
+		text : $sce.trustAsHtml('Vitsk&oslash;l kloster')
+	},
+        {
+		src : 'img10.JPG',
+		text : $sce.trustAsHtml('Koldinghus')
+	},
+        {
+		src : 'img11.JPG',
+		text : $sce.trustAsHtml('Karnan')
+	},
+        {
+		src : 'img13.JPG',
+		text : $sce.trustAsHtml('Dannevirke')
+	},
+        {
+		src : 'img14.JPG',
+		text : $sce.trustAsHtml('Kalmar slot')
+	},
+        {
+		src : 'img15.JPG',
+		text : $sce.trustAsHtml('Visby bymur')
+	},
+        {
+		src : 'img16.JPG',
+		text : $sce.trustAsHtml('Borgholm')
+	},
+        {
+		src : 'img17.JPG',
+		text : $sce.trustAsHtml('Vordingborg')
+	},
+        {
+		src : 'img18.JPG',
+		text : $sce.trustAsHtml('Borreby')
+	},
+        {
+		src : 'img19.JPG',
+		text : $sce.trustAsHtml('Kors&oslash;r')
+	},
+        {
+		src : 'img20.JPG',
+		text : $sce.trustAsHtml('Vadstena')
+	}
+    ];
     
     $state.transitionTo('omhistorie');
 
@@ -213,3 +274,4 @@ routerApp.controller('ftnielsController', function($scope) {
 
 routerApp.controller('ftnicolaiController', function($scope) {
 });
+
