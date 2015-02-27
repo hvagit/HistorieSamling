@@ -11,7 +11,7 @@ routerApp.controller('filmController', function($scope, dataServiceRest) {
 	};
 
         $scope.opretFilm = function() {
-                if($scope.opretKodeModel === 'hva')
+                if($scope.opretKodeModel === 'hva1969')
                 {
                     dataServiceRest.opretFilm($scope);
                 }
@@ -134,7 +134,7 @@ routerApp.controller('omhistorieController', function($scope, $state, $sce) {
 routerApp.controller('bogCrudController', function($scope, $http, dataService) {
     
     $scope.opretBog = function(){
-            if($scope.passwordModel === 'hva')
+            if($scope.passwordModel === 'hva1969')
             {
                         dataService.opretBog($scope, $http);
             }
