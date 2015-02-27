@@ -57,19 +57,19 @@ routerServices.service('dataService', function DataService() {
 		var instruktoer = encodeURIComponent($scope.instruktoerModel);
 		var titel = encodeURIComponent($scope.filmTitelModel);
 		
-        var promise = $http.post(filmServiceUrl, { 
-            "instruktoer": instruktoer,
-            "titel": titel,
-            "premiereaar": $scope.premiereAarModel,
-            "trailer": $scope.trailerModel
-          });
+                var promise = $http.post(filmServiceUrl, { 
+                    "instruktoer": instruktoer,
+                    "titel": titel,
+                    "premiereaar": $scope.premiereAarModel,
+                    "trailer": $scope.trailerModel
+                  });
         
-        promise.success(function(data, status, headers, config) {
-    		$scope.pwCudStatus = 'Filmen er oprettet';
-        });
-        promise.error(function(data, status, headers, config) {
-        	$scope.pwCudStatus = "AJAX fejl ifm. opretFilm..."+status;
-        });
+                promise.success(function(data, status, headers, config) {
+                        $scope.pwCudStatus = 'Filmen er oprettet';
+                });
+                promise.error(function(data, status, headers, config) {
+                        $scope.pwCudStatus = "AJAX fejl ifm. opretFilm..."+status;
+                });
 	};
 	
     var boegerServiceUrl = "http://9-dot-historiesamlingservice.appspot.com/boeger";
@@ -98,26 +98,26 @@ routerServices.service('dataService', function DataService() {
 		var bogtitel = encodeURIComponent($scope.titelModel);
 		var forfatter = encodeURIComponent($scope.forfatterModel);
 		
-        var promise = $http.post(boegerServiceUrl, { 
-            "udgivelsesAar": $scope.udgivelsesaarModel,
-            "dk5Vaerdi": $scope.dk5VaerdiModel,
-            "forfatter": forfatter,
-            "titel": bogtitel,
-            "isbn": $scope.isbnModel
-          });
+                var promise = $http.post(boegerServiceUrl, { 
+                    "udgivelsesAar": $scope.udgivelsesaarModel,
+                    "dk5Vaerdi": $scope.dk5VaerdiModel,
+                    "forfatter": forfatter,
+                    "titel": bogtitel,
+                    "isbn": $scope.isbnModel
+                });
         
-        promise.success(function(data, status, headers, config) {
-    		$scope.pwCudStatus = 'Bogen er oprettet';
-        });
-        promise.error(function(data, status, headers, config) {
-        	$scope.pwCudStatus = "AJAX fejl ifm. opretBog..."+status;
-        });
+                promise.success(function(data, status, headers, config) {
+                        $scope.pwCudStatus = 'Bogen er oprettet';
+                });
+                promise.error(function(data, status, headers, config) {
+                        $scope.pwCudStatus = "AJAX fejl ifm. opretBog..."+status;
+                });
 	};
 
 });
 
 routerServices.service('dataServiceRest', function DataServiceRest($resource) {
-	
+
     var Film = $resource('http://9-dot-historiesamlingservice.appspot.com/film:id');
 
     this.opretFilm = function($scope) {
@@ -131,12 +131,12 @@ routerServices.service('dataServiceRest', function DataServiceRest($resource) {
 
     // Ikke implementeret færdig.
     this.opdaterFilm = function($scope) {
-        var film2 = Film.get({id: 5124589889781760});
+        var film2 = Film.get({id: 5139717033033728});       
         film2.instruktoer = encodeURIComponent($scope.instruktoerModel);
         film2.titel = encodeURIComponent($scope.filmTitelModel);
         film2.premiereAar = $scope.premiereAarModel;
         film2.trailer = $scope.trailerModel;
-        film2.$update();
+        film2.$save();
     };
 
     // Bemærk, at der ikke er nogen opsætning af JSON-variable i metoden.
@@ -176,7 +176,7 @@ routerServices.service('dataServiceRest', function DataServiceRest($resource) {
 
     // Ikke implementeret færdig
     this.sletFilm = function($scope) {
-        Film.$delete({id: 5186378094608384});
+        Film.$delete({id: 5139717033033728});
     };
 
 });

@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp', ['ngAnimate', 'ngTouch', 'ngResource', 'ui.router', 'routerControllers', 'routerDirectives', 'routerServices', 'routerFilters']);
+var routerApp = angular.module('routerApp', ['ngAnimate', 'ngTouch', 'ngResource', 'ui.router', 'routerControllers', 'routerDirectives', 'routerServices', 'routerFilters', 'routerFactories']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     
@@ -356,3 +356,5 @@ routerApp.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.headers.post['Accept'] = 'application/json, charset=utf-8';
     $httpProvider.defaults.headers.post['Accept-Charset'] = 'charset=utf-8';
 }]);
+
+
