@@ -30,7 +30,7 @@ Vonsild kirke.
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="bog in boeger">
+        <tr ng-repeat="bog in boeger | orderBy: 'forfatter'">
             <td>{{ bog.forfatter }}</td>
             <td>{{ bog.titel }}</td>
             <td>{{ bog.udgivelsesaar}}</td>
