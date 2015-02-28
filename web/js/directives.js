@@ -62,3 +62,16 @@ routerDirectives.directive('myYoutube', function($sce) {
 	    }
 	  };
 });
+
+routerDirectives.directive("checkpassword", function() {
+    return {
+        restrict: "A",
+        require: "ngModel",
+         
+        link: function(scope, element, attributes, ngModel) {
+            ngModel.$validators.checkpassword = function(modelValue) {  
+                return (modelValue.search(/[a-z]/i) > -1 && modelValue.search(/[0-9]/i) > -1);
+            };
+        }
+    };
+});
