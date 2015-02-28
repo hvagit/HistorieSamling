@@ -2,7 +2,7 @@
 
 <div class="col-md-6">   
     <div class="input-group input-group-sm">
-        <input type="text" name="forfatter" class="form-control" id="forfatter" placeholder="Forfatter" ng-model="forfatterModel" aria-describedby="sizing-addon3">
+        <input type="text" name="forfatter" class="form-control" id="forfatter" placeholder="Forfatter" ng-model="forfatterModel" required="" ng-minlength="3" ng-maxlength="50" aria-describedby="sizing-addon3">
         <input type="text" name="titel" class="form-control" id="titel" placeholder="Titel" ng-model="titelModel" aria-describedby="sizing-addon3">
         <input type="number" name="udgivelsesaar" class="form-control" id="udgivet" placeholder="Udgivelsesår" ng-model="udgivelsesaarModel" aria-describedby="sizing-addon3">
         <input type="text" name="isbn" class="form-control" id="isbn" placeholder="ISBN" ng-model="isbnModel" aria-describedby="sizing-addon3">
@@ -10,9 +10,13 @@
     </div>
 </div>
 <div class="col-md-4">   
-    <div class="input-group input-group-sm">
-        <input type="password" name="kode" class="form-control" id="kode" placeholder="Kode" ng-model="passwordModel" aria-describedby="sizing-addon3">
-    </div>
+
+     <form name="opretBogForm" >
+          <div class="form-group">
+                <input type="password" name="kode" class="form-control" id="kode" placeholder="Kode" ng-model="passwordModel" aria-describedby="sizing-addon3" required="" ng-minlength="3" ng-maxlength="14">
+                <div ng-messages="opretBogForm.kode.$error" ng-messages-include="templates/error-messages.html"></div>
+          </div>
+     </form>
 </div>
 <div class="col-md-2">   
     <div class="input-group input-group-sm">

@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp', ['ngAnimate', 'ngTouch', 'ngResource', 'ui.router', 'routerControllers', 'routerDirectives', 'routerServices', 'routerFilters', 'routerFactories']);
+var routerApp = angular.module('routerApp', ['ngAnimate', 'ngTouch', 'ngMessages', 'ngResource', 'ui.router', 'routerControllers', 'routerDirectives', 'routerServices', 'routerFilters', 'routerFactories']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     
