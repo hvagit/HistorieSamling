@@ -2,7 +2,7 @@
 
 var routerControllers = angular.module('routerControllers', []);
 
-routerApp.controller('filmController', function($scope, dataServiceRest) {
+routerControllers.controller('filmController', function($scope, dataServiceRest) {
     
    	$scope.film = [];
 
@@ -34,7 +34,7 @@ routerApp.controller('filmController', function($scope, dataServiceRest) {
         };
 });
 
-routerApp.controller('bogController', function($scope, $http, dataService) {
+routerControllers.controller('bogController', function($scope, $http, dataService) {
 	
     $scope.visDefault = false;
 
@@ -47,7 +47,7 @@ routerApp.controller('bogController', function($scope, $http, dataService) {
    $scope.hentAlleBoeger();
 });
 
-routerApp.controller('omhistorieController', function($scope, $state, $sce) {
+routerControllers.controller('omhistorieController', function($scope, $state, $sce) {
 
     $scope.images = [ {
 		src : 'img1.JPG',
@@ -131,7 +131,7 @@ routerApp.controller('omhistorieController', function($scope, $state, $sce) {
 
 });
 
-routerApp.controller('bogCrudController', function($scope, $http, dataService) {
+routerControllers.controller('bogCrudController', function($scope, $http, dataService) {
     
     $scope.opretBog = function(){
             if($scope.passwordModel === 'hva1969')
@@ -142,17 +142,17 @@ routerApp.controller('bogCrudController', function($scope, $http, dataService) {
     
 });
 
-routerApp.controller('bogLinksController', function($scope) {
+routerControllers.controller('bogLinksController', function($scope) {
 });
 
-routerApp.controller('bogDefinitionController', function($scope) {
+routerControllers.controller('bogDefinitionController', function($scope) {
 });
 
-routerApp.controller("villefrancheController", function($scope, $sce) {		
+routerControllers.controller("villefrancheController", function($scope, $sce) {		
     $scope.forord = $sce.trustAsResourceUrl("templates/forord.html");
 });
 
-routerApp.controller('generation1Controller', function($scope) {
+routerControllers.controller('generation1Controller', function($scope) {
     $scope.ejderstenenPath = "img/ejderstenen.JPG";
     $scope.sjoverPath = "img/sjover.png";
     $scope.kristkirkePath = "img/kristkirke.jpg";    $scope.broedPath = "img/broed.png";
@@ -164,7 +164,7 @@ routerApp.controller('generation1Controller', function($scope) {
     $scope.haarpiskPath = "img/haarpisk.jpg";
 });
 
-routerApp.controller('generation2Controller', function($scope) {
+routerControllers.controller('generation2Controller', function($scope) {
     $scope.hamborgPath = "img/hamborg.png";
     $scope.inspektionPath = "img/inspektion.jpg";
     $scope.klokkespilPath = "img/klokkespil.jpg";
@@ -172,114 +172,114 @@ routerApp.controller('generation2Controller', function($scope) {
     $scope.skambaekPath = "img/skambaek.jpg";   
 });
 
-routerApp.controller('generation3Controller', function($scope) {
+routerControllers.controller('generation3Controller', function($scope) {
 });
 
-routerApp.controller('litteraturController', function($scope) {
+routerControllers.controller('litteraturController', function($scope) {
 });
 
-routerApp.controller('kilderController', function($scope) {
+routerControllers.controller('kilderController', function($scope) {
 });
 
-routerApp.controller('brevController', function($scope, $sce) {
+routerControllers.controller('brevController', function($scope, $sce) {
        $scope.ombreve = $sce.trustAsResourceUrl("templates/ombreve.html");
 });
 
-routerApp.controller('brev1Controller', function($scope) {
+routerControllers.controller('brev1Controller', function($scope) {
 });
 
-routerApp.controller('brev2Controller', function($scope) {
+routerControllers.controller('brev2Controller', function($scope) {
 });
 
-routerApp.controller('skifteprotokolController', function($scope) {
+routerControllers.controller('skifteprotokolController', function($scope) {
 });
 
-routerApp.controller('justitsprotokolController', function($scope, $sce) {
+routerControllers.controller('justitsprotokolController', function($scope, $sce) {
        $scope.omjustitsprotokoller = $sce.trustAsResourceUrl("templates/omjustitsprotokoller.html");   
 });
 
-routerApp.controller('jp1781aController', function($scope) {
+routerControllers.controller('jp1781aController', function($scope) {
 });
 
-routerApp.controller('jp1784aController', function($scope) {
+routerControllers.controller('jp1784aController', function($scope) {
 });
 
-routerApp.controller('jp1784bController', function($scope) {
+routerControllers.controller('jp1784bController', function($scope) {
 });
 
-routerApp.controller('jp1789aController', function($scope) {
+routerControllers.controller('jp1789aController', function($scope) {
 });
 
-routerApp.controller('jp1791aController', function($scope) {
+routerControllers.controller('jp1791aController', function($scope) {
 });
 
-routerApp.controller('jp1791bController', function($scope) {
+routerControllers.controller('jp1791bController', function($scope) {
 });
 
-routerApp.controller('jp1808aController', function($scope) {
+routerControllers.controller('jp1808aController', function($scope) {
 });
 
-routerApp.controller('stambogController', function($scope, $sce) {
+routerControllers.controller('stambogController', function($scope, $sce) {
        $scope.omstamboeger = $sce.trustAsResourceUrl("templates/omstamboeger.html");   
 });
 
-routerApp.controller('stamboggeorge1Controller', function($scope) {
+routerControllers.controller('stamboggeorge1Controller', function($scope) {
 });
 
-routerApp.controller('stambognicolai1Controller', function($scope) {
+routerControllers.controller('stambognicolai1Controller', function($scope) {
 });
 
-routerApp.controller('stambognicolai2Controller', function($scope) {
+routerControllers.controller('stambognicolai2Controller', function($scope) {
 });
 
-routerApp.controller('stambognicolai3Controller', function($scope) {
+routerControllers.controller('stambognicolai3Controller', function($scope) {
 });
 
-routerApp.controller('forskningController', function($scope, $sce) {
+routerControllers.controller('forskningController', function($scope, $sce) {
        $scope.omforskning = $sce.trustAsResourceUrl("templates/omforskning.html");   
 });
 
-routerApp.controller('petersenController', function($scope) {
+routerControllers.controller('petersenController', function($scope) {
 });
 
-routerApp.controller('malhacheController', function($scope) {
+routerControllers.controller('malhacheController', function($scope) {
 });
 
-routerApp.controller('grutznerController', function($scope) {
+routerControllers.controller('grutznerController', function($scope) {
 });
 
-routerApp.controller('stambognicolai3Controller', function($scope) {
+routerControllers.controller('stambognicolai3Controller', function($scope) {
 });
 
-routerApp.controller('kirkebogController', function($scope, $sce) {
+routerControllers.controller('kirkebogController', function($scope, $sce) {
        $scope.omforskning = $sce.trustAsResourceUrl("templates/omkirkeboeger.html");   
 });
 
-routerApp.controller('holmeController', function($scope) {
+routerControllers.controller('holmeController', function($scope) {
 });
 
-routerApp.controller('holmstrupController', function($scope) {
+routerControllers.controller('holmstrupController', function($scope) {
 });
 
-routerApp.controller('maarsletController', function($scope) {
+routerControllers.controller('maarsletController', function($scope) {
 });
 
-routerApp.controller('kalundborgController', function($scope) {
+routerControllers.controller('kalundborgController', function($scope) {
 });
 
-routerApp.controller('raklevController', function($scope) {
+routerControllers.controller('raklevController', function($scope) {
 });
 
-routerApp.controller('folketaellingController', function($scope, $sce) {
+routerControllers.controller('folketaellingController', function($scope, $sce) {
        $scope.omfolketaellinger = $sce.trustAsResourceUrl("templates/omfolketaellinger.html");   
 });
 
-routerApp.controller('ftgeorgeController', function($scope) {
+routerControllers.controller('ftgeorgeController', function($scope) {
 });
 
-routerApp.controller('ftnielsController', function($scope) {
+routerControllers.controller('ftnielsController', function($scope) {
 });
 
-routerApp.controller('ftnicolaiController', function($scope) {
+routerControllers.controller('ftnicolaiController', function($scope) {
 });
 
