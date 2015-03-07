@@ -6,11 +6,6 @@ routerControllers.controller('filmController', function($scope, $indexedDB, data
     
    	$scope.film = [];
         
-        $scope.instruktoerModel = "";
-        $scope.filmTitelModel = "";
-        $scope.premiereAarModel = "";
-        $scope.trailerModel = "";           
-
         $scope.sletFilm = function() {
 		dataServiceRest.sletFilm($scope);
 	};
@@ -20,6 +15,10 @@ routerControllers.controller('filmController', function($scope, $indexedDB, data
                 {
                     dataServiceRest.opretFilm($scope, $indexedDB);
                 }
+                $scope.instruktoerModel = "";
+                $scope.filmTitelModel = "";
+                $scope.premiereAarModel = "";
+                $scope.trailerModel = "";           
         };
 
 	$scope.opdaterFilm = function() {

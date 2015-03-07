@@ -128,14 +128,22 @@ routerServices.service('dataServiceRest', function DataServiceRest($resource, $i
             film1.trailer = $scope.trailerModel;
             film1.$save();   
             
+            var filmensdata =
+            {
+                    premiereAar: $scope.premiereAarModel,
+                    titel: encodeURIComponent($scope.filmTitelModel),
+                    trailer: $scope.trailerModel,
+                    instruktoer: encodeURIComponent($scope.instruktoerModel)
+            };               
+
             // Oprettet filmen lokalt
-            this.opretFilmIndexedDB($scope, $indexedDB);
+            this.opretFilmIndexedDB(filmensdata, $indexedDB);
     };
 
-    this.opretFilmIndexedDB = function($scope, $indexedDB) {
+    this.opretFilmIndexedDB = function(fdata, $indexedDB) {
             alert("Metoden kaldes");
             $indexedDB.openStore('film', function(store) {
-              store.insert({"titel": encodeURIComponent($scope.filmTitelModel),"instruktoer": encodeURIComponent($scope.instruktoerModel), "trailer": $scope.trailerModel, "premiereaar": $scope.premiereAarModel}).then(function(e){});
+              store.insert({"titel": encodeURIComponent(fdata.titel),"instruktoer": encodeURIComponent(fdata.instruktoer), "trailer": fdata.trailer, "premiereaar": fdata.premiereAar}).then(function(e){});
             });
     };
 
@@ -185,14 +193,21 @@ routerServices.service('dataServiceRest', function DataServiceRest($resource, $i
      };
      
      this.opretAlleFilmIndexedDB = function($scope, $indexedDB) {
-        for(var i=0; i<$scope.film.length; i++)
+         filmdata = [];
+         // Sådan skal der loopes over scope-variabel.
+        angular.forEach($scope.film, function(f) {
+                filmdata.push
+                ({
+                    premiereAar: f.premiereAar,
+                    titel: decodeURIComponent(f.titel),
+                    trailer: f.trailer,
+                    instruktoer: decodeURIComponent(f.instruktoer)
+                });               
+        });
+        
+        for(i=0; i<filmdata.length; i++)
         {
-                $scope.instruktoerModel = "A"+$scope.film.instruktoer;
-                $scope.filmTitelModel = "Zappa";
-                $scope.premiereAarModel = 2020;
-                $scope.trailerModel = "hhhhh";
-
-                this.opretFilmIndexedDB($scope, $indexedDB);
+                this.opretFilmIndexedDB(filmdata[i], $indexedDB);
         }
      };
 
