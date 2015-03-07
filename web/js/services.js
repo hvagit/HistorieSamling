@@ -1,4 +1,4 @@
-var routerServices = angular.module('routerServices', ['ngResource']);
+var routerServices = angular.module('routerServices', ['indexedDB']);
 
 routerServices.service('dataServiceLocal', function DataServiceLocal() {
 	this.hentAlleFilm = function($scope, $http) {
@@ -116,17 +116,27 @@ routerServices.service('dataService', function DataService() {
 
 });
 
-routerServices.service('dataServiceRest', function DataServiceRest($resource) {
+routerServices.service('dataServiceRest', function DataServiceRest($resource, $indexedDB) {
 
     var Film = $resource('http://9-dot-historiesamlingservice.appspot.com/film:id');
 
-    this.opretFilm = function($scope) {
+    this.opretFilm = function($scope, $indexedDB) {
             var film1 = new Film();
             film1.instruktoer = encodeURIComponent($scope.instruktoerModel);
             film1.titel = encodeURIComponent($scope.filmTitelModel);
             film1.premiereAar = $scope.premiereAarModel;
             film1.trailer = $scope.trailerModel;
             film1.$save();   
+            
+            // Oprettet filmen lokalt
+            this.opretFilmIndexedDB($scope, $indexedDB);
+    };
+
+    this.opretFilmIndexedDB = function($scope, $indexedDB) {
+            alert("Metoden kaldes");
+            $indexedDB.openStore('film', function(store) {
+              store.insert({"titel": encodeURIComponent($scope.filmTitelModel),"instruktoer": encodeURIComponent($scope.instruktoerModel), "trailer": $scope.trailerModel, "premiereaar": $scope.premiereAarModel}).then(function(e){});
+            });
     };
 
     // Ikke implementeret færdig.
@@ -153,7 +163,7 @@ routerServices.service('dataServiceRest', function DataServiceRest($resource) {
         });
      };
 
-    this.hentAlleFilm = function($scope) {
+    this.hentAlleFilm = function($scope, $indexedDB) {
         Film.query().$promise.then(function(data) {
        // success
             $scope.film.splice(0, $scope.film.length);
@@ -166,12 +176,24 @@ routerServices.service('dataServiceRest', function DataServiceRest($resource) {
                     trailer: data[i].trailer,
                     instruktoer: decodeURIComponent(data[i].instruktoer),
                     id: data[i].id
-                });
-            }
+                });               
+            }           
         }, 
         function(errResponse) {
             alert("Fejl i hentAlleFilm", errResponse);
-        });
+        });       
+     };
+     
+     this.opretAlleFilmIndexedDB = function($scope, $indexedDB) {
+        for(var i=0; i<$scope.film.length; i++)
+        {
+                $scope.instruktoerModel = "A"+$scope.film.instruktoer;
+                $scope.filmTitelModel = "Zappa";
+                $scope.premiereAarModel = 2020;
+                $scope.trailerModel = "hhhhh";
+
+                this.opretFilmIndexedDB($scope, $indexedDB);
+        }
      };
 
     // Ikke implementeret færdig

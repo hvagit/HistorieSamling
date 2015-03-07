@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp', ['ngAnimate', 'ngTouch', 'ngMessages', 'ngResource', 'ui.router', 'routerControllers', 'routerDirectives', 'routerServices', 'routerFilters', 'routerFactories']);
+var routerApp = angular.module('routerApp', ['ngAnimate', 'ngTouch', 'ngMessages', 'ngResource', 'ui.router', 'indexedDB', 'routerControllers', 'routerDirectives', 'routerServices', 'routerFilters', 'routerFactories']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     
@@ -350,6 +350,26 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         });
+});
+
+routerApp.config(function ($indexedDBProvider) {
+    $indexedDBProvider
+      .connection('historieSamlingIndexedDB')
+      .upgradeDatabase(1, function(event, db, tx){
+
+        var objStore1 = db.createObjectStore('bog', {keyPath: 'id', autoIncrement:true });
+        objStore1.createIndex('forfatter_idx', 'forfatter', {unique: false});
+        objStore1.createIndex('titel_idx', 'titel', {unique: false});
+        objStore1.createIndex('udgivelseaar_idx', 'isbn', {unique: false});
+        objStore1.createIndex('isbn_idx', 'isbn', {unique: false});
+        objStore1.createIndex('dk5_idx', 'dk5', {unique: false});
+
+        var objStore2 = db.createObjectStore('film', {keyPath: 'id', autoIncrement:true });
+        objStore2.createIndex('titel_idx', 'titel', {unique: false});
+        objStore2.createIndex('premiereaar_idx', 'premiereaar', {unique: false});
+        objStore2.createIndex('instruktoer_idx', 'instruktoer', {unique: false});
+        objStore2.createIndex('trailer_idx', 'trailer', {unique: false});
+      });
 });
 
 routerApp.config(['$httpProvider', function ($httpProvider) {

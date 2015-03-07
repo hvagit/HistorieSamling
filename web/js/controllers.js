@@ -2,9 +2,14 @@
 
 var routerControllers = angular.module('routerControllers', []);
 
-routerControllers.controller('filmController', function($scope, dataServiceRest) {
+routerControllers.controller('filmController', function($scope, $indexedDB, dataServiceRest) {
     
    	$scope.film = [];
+        
+        $scope.instruktoerModel = "";
+        $scope.filmTitelModel = "";
+        $scope.premiereAarModel = "";
+        $scope.trailerModel = "";           
 
         $scope.sletFilm = function() {
 		dataServiceRest.sletFilm($scope);
@@ -13,41 +18,56 @@ routerControllers.controller('filmController', function($scope, dataServiceRest)
         $scope.opretFilm = function() {
                 if($scope.opretKodeModel === 'hva1969')
                 {
-                    dataServiceRest.opretFilm($scope);
+                    dataServiceRest.opretFilm($scope, $indexedDB);
                 }
         };
 
 	$scope.opdaterFilm = function() {
-		dataServiceRest.opdaterFilm($scope);
+		dataServiceRest.opdaterFilm($scope, $indexedDB);
 	};
 
         $scope.hentAlleFilm = function() {
-		dataServiceRest.hentAlleFilm($scope);
+		dataServiceRest.hentAlleFilm($scope, $indexedDB);
 	};
         
-	$scope.hentAlleFilm();
+        $scope.hentAlleFilm();
 
         $scope.youtubecode = 'UmcttiebIN0';
 
 	$scope.visTrailer = function(item) {
             $scope.youtubecode = item.trailer;
         };
+        
+        $scope.$watch('film', function() { 
+            dataServiceRest.opretAlleFilmIndexedDB($scope, $indexedDB);
+        }, true);
 });
 
-routerControllers.controller('bogController', function($scope, $http, dataService) {
-	
+routerControllers.controller('bogController', function($scope, $http, $indexedDB, dataService) {
+
     $scope.visDefault = false;
 
     $scope.boeger = [];
                        
     $scope.hentAlleBoeger = function(){
-	dataService.hentAlleBoeger($scope, $http);
+	dataService.hentAlleBoeger($scope, $http, $indexedDB);
     };
     
    $scope.hentAlleBoeger();
 });
 
-routerControllers.controller('omhistorieController', function($scope, $state, $sce) {
+routerControllers.controller('omhistorieController', function($scope, $state, $sce, $indexedDB) {
+
+    var req = indexedDB.deleteDatabase('historieSamlingIndexedDB');
+    req.onsuccess = function () {
+        /* console.log("Databasen er slettet"); */
+    };
+    req.onerror = function () {
+        /* console.log("Kunne ikke slette databasen"); */
+    };
+    req.onblocked = function () {
+        /* console.log("Kunne ikke slette databasen pga. blokering"); */
+    };
 
     $scope.images = [ {
 		src : 'img1.JPG',
@@ -131,12 +151,12 @@ routerControllers.controller('omhistorieController', function($scope, $state, $s
 
 });
 
-routerControllers.controller('bogCrudController', function($scope, $http, dataService) {
+routerControllers.controller('bogCrudController', function($scope, $http, $indexedDB, dataService) {
     
     $scope.opretBog = function(){
             if($scope.passwordModel === 'hva1969')
             {
-                        dataService.opretBog($scope, $http);
+                        dataService.opretBog($scope, $http, $indexedDB);
             }
     };
     
