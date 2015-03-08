@@ -2,10 +2,13 @@
 
 var routerControllers = angular.module('routerControllers', []);
 
-routerControllers.controller('filmController', function($scope, $indexedDB, dataServiceRest) {
+routerControllers.controller('filmController', function($scope, $indexedDB, dataServiceRest, gemTilstand) {
     
-   	$scope.film = [];
-        
+        $scope.remoteTid = gemTilstand.remoteKaldTid;
+        $scope.lokalTid = gemTilstand.lokaltKaldTid;
+
+        $scope.film = [];
+                
         $scope.sletFilm = function() {
 		dataServiceRest.sletFilm($scope);
 	};
@@ -25,11 +28,30 @@ routerControllers.controller('filmController', function($scope, $indexedDB, data
 		dataServiceRest.opdaterFilm($scope, $indexedDB);
 	};
 
-        $scope.hentAlleFilm = function() {
-		dataServiceRest.hentAlleFilm($scope, $indexedDB);
-	};
+        $scope.hentAlleFilm = function($scope, gemTilstand) {
+            if(gemTilstand.remoteKald === false)
+            {
+                var start = performance.now();
+                dataServiceRest.hentAlleFilm($scope, $indexedDB);
+                var time = performance.now() - start;
+                gemTilstand.remoteKaldTid = time.toFixed(2);
+                $scope.remoteTid = gemTilstand.remoteKaldTid;
+                if($scope.idb === true)
+                {
+                    gemTilstand.remoteKald = true;
+                }
+            }
+            else
+            {
+                var start = performance.now();
+                dataServiceRest.hentAlleFilmIndexedDB($scope, $indexedDB);
+                var time = performance.now() - start;
+                gemTilstand.lokaltKaldTid = time.toFixed(2);
+                $scope.lokalTid = gemTilstand.lokaltKaldTid; 
+            }
+        };
         
-        $scope.hentAlleFilm();
+        $scope.hentAlleFilm($scope, gemTilstand);
 
         $scope.youtubecode = 'UmcttiebIN0';
 
@@ -37,14 +59,16 @@ routerControllers.controller('filmController', function($scope, $indexedDB, data
             $scope.youtubecode = item.trailer;
         };
         
-        $scope.$watch('film', function() { 
-            dataServiceRest.opretAlleFilmIndexedDB($scope, $indexedDB);
-        }, true);
+        if($scope.idb === true && gemTilstand.idbOprettet === false)
+        {
+            $scope.$watch('film', function() { 
+                dataServiceRest.opretAlleFilmIndexedDB($scope, $indexedDB);
+                gemTilstand.idbOprettet = true;
+            }, true);
+        }
 });
 
 routerControllers.controller('bogController', function($scope, $http, $indexedDB, dataService) {
-
-    $scope.visDefault = false;
 
     $scope.boeger = [];
                        
@@ -55,18 +79,28 @@ routerControllers.controller('bogController', function($scope, $http, $indexedDB
    $scope.hentAlleBoeger();
 });
 
-routerControllers.controller('omhistorieController', function($scope, $state, $sce, $indexedDB) {
+routerControllers.controller('omhistorieController', function($scope, $state, $sce, $window) {
 
-    var req = indexedDB.deleteDatabase('historieSamlingIndexedDB');
-    req.onsuccess = function () {
-        /* console.log("Databasen er slettet"); */
-    };
-    req.onerror = function () {
-        /* console.log("Kunne ikke slette databasen"); */
-    };
-    req.onblocked = function () {
-        /* console.log("Kunne ikke slette databasen pga. blokering"); */
-    };
+    /* Er indexedDB tilgængelig? */
+    $scope.idb = false;
+    if($window.indexedDB !== null)
+    {
+        $scope.idb = true;
+    }
+
+    if($scope.idb === true)
+    {
+        var req = indexedDB.deleteDatabase('historieSamlingIndexedDB');
+        req.onsuccess = function () {
+            /* console.log("Databasen er slettet"); */
+        };
+        req.onerror = function () {
+            /* console.log("Kunne ikke slette databasen"); */
+        };
+        req.onblocked = function () {
+            /* console.log("Kunne ikke slette databasen pga. blokering"); */
+        };
+    }
 
     $scope.images = [ {
 		src : 'img1.JPG',

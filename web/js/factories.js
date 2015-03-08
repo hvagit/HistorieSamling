@@ -9,3 +9,11 @@ routerFactories.factory('Filmen', ['$resource', function($resource) {
       fjernFilm: {method:'DELETE', params: {id: '@id'}}
     });    
 }]);
+
+routerFactories.factory('gemTilstand', function() {
+      return {	remoteKald: false,
+                remoteKaldTid: 0,
+                lokaltKaldTid: 0,
+                idbOprettet: false
+      		};
+});

@@ -128,20 +128,21 @@ routerServices.service('dataServiceRest', function DataServiceRest($resource, $i
             film1.trailer = $scope.trailerModel;
             film1.$save();   
             
-            var filmensdata =
-            {
-                    premiereAar: $scope.premiereAarModel,
-                    titel: encodeURIComponent($scope.filmTitelModel),
-                    trailer: $scope.trailerModel,
-                    instruktoer: encodeURIComponent($scope.instruktoerModel)
-            };               
-
             // Oprettet filmen lokalt
-            this.opretFilmIndexedDB(filmensdata, $indexedDB);
+            if($scope.idb === true)
+            {
+                var filmensdata =
+                {
+                        premiereAar: $scope.premiereAarModel,
+                        titel: encodeURIComponent($scope.filmTitelModel),
+                        trailer: $scope.trailerModel,
+                        instruktoer: encodeURIComponent($scope.instruktoerModel)
+                };               
+                this.opretFilmIndexedDB(filmensdata, $indexedDB);
+            }
     };
 
     this.opretFilmIndexedDB = function(fdata, $indexedDB) {
-            alert("Metoden kaldes");
             $indexedDB.openStore('film', function(store) {
               store.insert({"titel": encodeURIComponent(fdata.titel),"instruktoer": encodeURIComponent(fdata.instruktoer), "trailer": fdata.trailer, "premiereaar": fdata.premiereAar}).then(function(e){});
             });
@@ -160,7 +161,7 @@ routerServices.service('dataServiceRest', function DataServiceRest($resource, $i
     // Bemærk, at der ikke er nogen opsætning af JSON-variable i metoden.
     // At det kan lade sig gøre, hænger sammen med, at variablene i film.html
     // er identiske med attributnavnene i webservicens Film-klasse.
-    // Tjaah, det duer ikke, da der skal laves konvertering.
+    // Tjaah, det duer ikke, da der skal laves konvertering - decode/encode.
     this.hentAlleFilmUdenKonvertering = function($scope) {
         Film.query().$promise.then(function(data) {
        // success
@@ -192,7 +193,26 @@ routerServices.service('dataServiceRest', function DataServiceRest($resource, $i
         });       
      };
      
-     this.opretAlleFilmIndexedDB = function($scope, $indexedDB) {
+     this.hentAlleFilmIndexedDB = function($scope, $indexedDB) {
+         $indexedDB.openStore('film', function(store) {
+              store.getAll().then(function(data) {  
+                    $scope.film.splice(0, $scope.film.length);
+                    for(var i=0; i<data.length; i++)
+                    {
+                        $scope.film.push
+                        ({
+                            premiereAar: data[i].premiereaar,
+                            titel: decodeURIComponent(data[i].titel),
+                            trailer: data[i].trailer,
+                            instruktoer: decodeURIComponent(data[i].instruktoer),
+                            id: data[i].id
+                        });               
+                    }           
+              });
+         });
+     };
+
+    this.opretAlleFilmIndexedDB = function($scope, $indexedDB) {
          filmdata = [];
          // Sådan skal der loopes over scope-variabel.
         angular.forEach($scope.film, function(f) {
