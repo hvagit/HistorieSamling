@@ -373,7 +373,7 @@ routerApp.config(function ($indexedDBProvider) {
 });
 
 routerApp.config(['$httpProvider', function ($httpProvider) {
-        $http.defaults.headers.common.Authorization = 'Basic ';
+/*    $http.defaults.headers.common.Authorization = 'Basic ';*/
     $httpProvider.defaults.headers.post['Accept'] = 'application/json, charset=utf-8';
     $httpProvider.defaults.headers.post['Accept-Charset'] = 'charset=utf-8';
 }]);
