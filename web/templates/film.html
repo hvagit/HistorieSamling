@@ -22,7 +22,7 @@
     					<div my-youtube youtubecode="youtubecode"></div>
                     
                     <div style="margin-top: 50px">   
-                        <div class="col-md-6">   
+                        <div class="col-md-8">   
                             <div class="input-group input-group-sm">
                                 <input type="text" name="filmtitel" class="form-control" id="forfatter" placeholder="Filmtitel" ng-model="filmTitelModel" aria-describedby="sizing-addon3">
                                 <input type="number" name="premiereaar" class="form-control" id="titel" placeholder="Premiereår" ng-model="premiereAarModel" aria-describedby="sizing-addon3">
@@ -31,17 +31,12 @@
                             </div>
                         </div>
                         <div class="col-md-4">   
-                                <div class="input-group input-group-sm">
-                                    <input type="password" name="opretKode" class="form-control" id="opretKode" placeholder="Kode" ng-model="opretKodeModel" aria-describedby="sizing-addon3">
-                                </div>
-                                <div style="color: gray">
-                                        </br></br>Remote kald {{remoteTid}} 
-                                       </br>Lokalt kald {{lokalTid}} 
-                                </div>
-                        </div>
-                        <div class="col-md-2">   
                             <div class="input-group input-group-sm">
                                 <button class="btn-default" ng-click="opretFilm()">Opret</button>
+                            </div>
+                            <div style="color: gray">
+                                </br></br>Remote kald {{remoteTid}} 
+                                </br>Lokalt kald {{lokalTid}} 
                             </div>
                         </div>
 

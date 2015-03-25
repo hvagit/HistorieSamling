@@ -14,10 +14,7 @@ routerControllers.controller('filmController', function($scope, $indexedDB, data
 	};
 
         $scope.opretFilm = function() {
-                if($scope.opretKodeModel === 'hva1969')
-                {
-                    dataServiceRest.opretFilm($scope, $indexedDB);
-                }
+                dataServiceRest.opretFilm($scope, $indexedDB);
                 $scope.instruktoerModel = "";
                 $scope.filmTitelModel = "";
                 $scope.premiereAarModel = "";

@@ -30,10 +30,9 @@ routerServices.service('dataServiceLocal', function DataServiceLocal() {
 
 routerServices.service('dataService', function DataService() {
 	
-	var filmServiceUrl = "http://9-dot-historiesamlingservice.appspot.com/film";
+	var filmServiceUrl = "http://11-dot-historiesamlingservice.appspot.com/film";
 	
 	this.hentAlleFilm = function($scope, $http) {
-		
 		  var promise = $http.get(filmServiceUrl);
 		  promise.success(function(data, status, headers, config) {
 			  $scope.film.splice(0, $scope.film.length);
@@ -72,10 +71,11 @@ routerServices.service('dataService', function DataService() {
                 });
 	};
 	
-    var boegerServiceUrl = "http://9-dot-historiesamlingservice.appspot.com/boeger";
+    var boegerServiceUrl = "http://11-dot-historiesamlingservice.appspot.com/boeger";
 
     this.hentAlleBoeger = function($scope, $http) {
-		  var promise = $http.get(boegerServiceUrl); 
+		  
+                  var promise = $http.get(boegerServiceUrl); 
 		  promise.success(function(data, status, headers, config) {
 			  	$scope.boeger.splice(0, $scope.boeger.length);
  				for(var i=0; i<data.length; i++)
@@ -118,7 +118,7 @@ routerServices.service('dataService', function DataService() {
 
 routerServices.service('dataServiceRest', function DataServiceRest($resource, $indexedDB) {
 
-    var Film = $resource('http://9-dot-historiesamlingservice.appspot.com/film:id');
+    var Film = $resource('http://11-dot-historiesamlingservice.appspot.com/film:id');
 
     this.opretFilm = function($scope, $indexedDB) {
             var film1 = new Film();
@@ -173,6 +173,7 @@ routerServices.service('dataServiceRest', function DataServiceRest($resource, $i
      };
 
     this.hentAlleFilm = function($scope, $indexedDB) {
+          
         Film.query().$promise.then(function(data) {
        // success
             $scope.film.splice(0, $scope.film.length);
