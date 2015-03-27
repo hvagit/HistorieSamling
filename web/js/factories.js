@@ -18,3 +18,4 @@ routerFactories.factory('gemTilstand', function() {
                 idbOprettet: false
       		};
 });
+

@@ -30,7 +30,7 @@ routerServices.service('dataServiceLocal', function DataServiceLocal() {
 
 routerServices.service('dataService', function DataService() {
 	
-	var filmServiceUrl = "http://14-dot-historiesamlingservice.appspot.com/film";
+	var filmServiceUrl = "http://21-dot-historiesamlingservice.appspot.com/film";
 	
 	this.hentAlleFilm = function($scope, $http) {
 		  var promise = $http.get(filmServiceUrl);
@@ -71,7 +71,7 @@ routerServices.service('dataService', function DataService() {
                 });
 	};
 	
-    var boegerServiceUrl = "http://14-dot-historiesamlingservice.appspot.com/boeger";
+    var boegerServiceUrl = "http:/21-dot-historiesamlingservice.appspot.com/boeger";
 
     this.hentAlleBoeger = function($scope, $http) {
 		  
@@ -118,7 +118,7 @@ routerServices.service('dataService', function DataService() {
 
 routerServices.service('dataServiceRest', function DataServiceRest($resource, $indexedDB) {
 
-    var Film = $resource('http://14-dot-historiesamlingservice.appspot.com/film:id');
+    var Film = $resource('http://21-dot-historiesamlingservice.appspot.com/film:id');
 
     this.opretFilm = function($scope, $indexedDB) {
             var film1 = new Film();
