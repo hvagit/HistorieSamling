@@ -74,7 +74,6 @@ routerServices.service('dataService', function DataService() {
     var boegerServiceUrl = "http:/21-dot-historiesamlingservice.appspot.com/boeger";
 
     this.hentAlleBoeger = function($scope, $http) {
-		  
                   var promise = $http.get(boegerServiceUrl); 
 		  promise.success(function(data, status, headers, config) {
 			  	$scope.boeger.splice(0, $scope.boeger.length);
@@ -117,6 +116,47 @@ routerServices.service('dataService', function DataService() {
 });
 
 routerServices.service('dataServiceRest', function DataServiceRest($resource, $indexedDB) {
+
+    /**** Herunder hentes bøger */
+
+    var Bog = $resource('http://21-dot-historiesamlingservice.appspot.com/boeger:id');
+
+    this.hentAlleBoeger = function($scope) {
+          
+        Bog.query().$promise.then(function(data) {
+       // success
+            $scope.boeger.splice(0, $scope.boeger.length);
+            for(var i=0; i<data.length; i++)
+            {
+                $scope.boeger.push
+                ({
+	    	  udgivelsesaar: data[i].udgivelsesAar,
+	    	  isbn: data[i].isbn,
+	    	  titel: decodeURIComponent(data[i].titel),
+	    	  forfatter: decodeURIComponent(data[i].forfatter),
+	    	  id: data[i].id
+                });               
+            }           
+        }, 
+        function(errResponse) {
+            alert("Fejl i hentAlleBoeger", errResponse);
+        });       
+     };
+
+	this.opretBog = function($scope, $indexedDB) {
+		var bogtitel = encodeURIComponent($scope.titelModel);
+		var forfatter = encodeURIComponent($scope.forfatterModel);
+		
+                var bog1 = new Bog();
+                bog1.udgivelsesAar = $scope.udgivelsesaarModel;
+                bog1.dk5Vaerdi = $scope.dk5VaerdiModel;
+                bog1.titel = bogtitel;
+                bog1.forfatter = forfatter;
+                bog1.isbn = $scope.isbnModel;
+                bog1.$save();   
+        };
+
+    /**** Herunder hentes film */
 
     var Film = $resource('http://21-dot-historiesamlingservice.appspot.com/film:id');
 

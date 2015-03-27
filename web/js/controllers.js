@@ -14,7 +14,10 @@ routerControllers.controller('filmController', function($scope, $indexedDB, data
 	};
 
         $scope.opretFilm = function() {
-                dataServiceRest.opretFilm($scope, $indexedDB);
+                if($scope.opretKodeModel === 'hva1969')
+                {
+                    dataServiceRest.opretFilm($scope, $indexedDB);
+                }
                 $scope.instruktoerModel = "";
                 $scope.filmTitelModel = "";
                 $scope.premiereAarModel = "";
@@ -65,12 +68,12 @@ routerControllers.controller('filmController', function($scope, $indexedDB, data
         }
 });
 
-routerControllers.controller('bogController', function($scope, $http, $indexedDB, dataService) {
+routerControllers.controller('bogController', function($scope, $http, $indexedDB, dataServiceRest) {
 
     $scope.boeger = [];
                        
     $scope.hentAlleBoeger = function(){
-	dataService.hentAlleBoeger($scope, $http, $indexedDB);
+	dataServiceRest.hentAlleBoeger($scope, $indexedDB);
     };
     
    $scope.hentAlleBoeger();
@@ -181,12 +184,13 @@ routerControllers.controller('omhistorieController', function($scope, $state, $s
 
 });
 
-routerControllers.controller('bogCrudController', function($scope, $http, $indexedDB, dataService) {
+routerControllers.controller('bogCrudController', function($scope, $indexedDB, dataServiceRest) {
     
+    $scope.passwordModel = '';
     $scope.opretBog = function(){
             if($scope.passwordModel === 'hva1969')
             {
-                        dataService.opretBog($scope, $http, $indexedDB);
+                        dataServiceRest.opretBog($scope, $indexedDB);
             }
     };
     
@@ -332,4 +336,3 @@ routerControllers.controller('ftnielsController', function($scope) {
 
 routerControllers.controller('ftnicolaiController', function($scope) {
 });
-
